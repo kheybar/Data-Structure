@@ -83,6 +83,7 @@ class LinkedList:
         new_node = Node(value)
         temp.next = new_node
         new_node.next = temp_next
+        self.length += 1
         return new_node
 
     def remove(self, index):
@@ -91,6 +92,7 @@ class LinkedList:
         temp_back = self.get(index - 1)
         temp_next = self.get(index + 1)
         temp_back.next = temp_next
+        self.length -= 1
         return True
         
     def print_list(self):
@@ -104,5 +106,4 @@ linked_list = LinkedList(1)
 linked_list.append(9)
 linked_list.append(8)
 linked_list.append(3)
-linked_list.remove(2)
 linked_list.print_list()
