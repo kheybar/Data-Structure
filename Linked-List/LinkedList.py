@@ -62,10 +62,17 @@ class LinkedList:
     def get(self, index):
         if index < 0 or index >= self.length:
             raise IndexError('Index out of range')
-        item = self.head
+        temp = self.head
         for _ in range(index):
-            item = item.next
-        return item.value
+            temp = temp.next
+        return temp
+
+    def set(self, value, index):
+        if not isinstance(value or index, int):
+            raise TypeError('must be int')
+        temp = self.get(index)
+        temp.value = value
+        return temp
 
     def print_list(self):
         temp = self.head
@@ -76,4 +83,5 @@ class LinkedList:
 
 linked_list = LinkedList(1)
 linked_list.append(9)
+linked_list.set(4, 1)
 linked_list.print_list()
