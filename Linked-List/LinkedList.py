@@ -73,6 +73,17 @@ class LinkedList:
         temp = self.get(index)
         temp.value = value
         return temp
+    
+    def insert(self, value, index):
+        if index == self.length:
+            new_node = self.append(value)
+            return new_node
+        temp = self.get(index - 1)
+        temp_next = temp.next
+        new_node = Node(value)
+        temp.next = new_node
+        new_node.next = temp_next
+        return new_node
 
     def print_list(self):
         temp = self.head
@@ -83,5 +94,6 @@ class LinkedList:
 
 linked_list = LinkedList(1)
 linked_list.append(9)
-linked_list.set(4, 1)
+linked_list.append(8)
+linked_list.insert(5, 3)
 linked_list.print_list()
