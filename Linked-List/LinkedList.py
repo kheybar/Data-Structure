@@ -85,6 +85,14 @@ class LinkedList:
         new_node.next = temp_next
         return new_node
 
+    def remove(self, index):
+        if index < 0 or index >= self.length:
+            raise IndexError('Index out of range')
+        temp_back = self.get(index - 1)
+        temp_next = self.get(index + 1)
+        temp_back.next = temp_next
+        return True
+        
     def print_list(self):
         temp = self.head
         while temp is not None:
@@ -95,5 +103,6 @@ class LinkedList:
 linked_list = LinkedList(1)
 linked_list.append(9)
 linked_list.append(8)
-linked_list.insert(5, 3)
+linked_list.append(3)
+linked_list.remove(2)
 linked_list.print_list()
