@@ -50,6 +50,15 @@ class LinkedList:
         self.length += 1
         return True
 
+    def pop_first(self):
+        if self.length == 0:
+            raise IndexError('LinkedList is empty')
+        else:
+            self.head = self.head.next
+            self.head.next = self.head.next
+            self.length -= 1
+            return True
+
     def print_list(self):
         temp = self.head
         while temp is not None:
@@ -58,5 +67,6 @@ class LinkedList:
 
 
 linked_list = LinkedList(1)
-linked_list.prepend(9)
+linked_list.append(9)
+linked_list.pop_first()
 linked_list.print_list()
