@@ -59,6 +59,14 @@ class LinkedList:
             self.length -= 1
             return True
 
+    def get(self, index):
+        if index < 0 or index >= self.length:
+            raise IndexError('Index out of range')
+        item = self.head
+        for _ in range(index):
+            item = item.next
+        return item.value
+
     def print_list(self):
         temp = self.head
         while temp is not None:
@@ -68,5 +76,4 @@ class LinkedList:
 
 linked_list = LinkedList(1)
 linked_list.append(9)
-linked_list.pop_first()
 linked_list.print_list()
