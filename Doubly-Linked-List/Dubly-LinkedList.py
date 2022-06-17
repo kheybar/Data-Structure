@@ -57,6 +57,14 @@ class DublyLinkedList:
             temp = self.head.next
         return temp
 
+    def set(self, index, value):
+        temp = self.get(index)
+        if temp:
+            temp.value = value
+            self.length += 1
+            return True
+        return False
+
     def print_list(self):
         temp = self.head
         while temp is not None:
@@ -67,4 +75,5 @@ class DublyLinkedList:
 dll = DublyLinkedList(10)
 dll.append(12)
 dll.append(14)
-print(dll.get(3).value)
+dll.set(2, 5)
+dll.print_list()
