@@ -31,6 +31,15 @@ class DublyLinkedList:
         self.length -= 1
         return temp
     
+    def prepend(self, value):
+        new_node = Node(value)
+        temp = self.head
+        self.head.prev = new_node
+        new_node.next = temp
+        self.head = new_node
+        self.length += 1
+        return True
+    
     def print_list(self):
         temp = self.head
         while temp is not None:
@@ -40,8 +49,6 @@ class DublyLinkedList:
 
 dll = DublyLinkedList(10)
 dll.append(12)
-dll.append(12)
-dll.pop()
-dll.pop()
-dll.pop()
+dll.append(14)
+dll.prepend(8)
 dll.print_list()
