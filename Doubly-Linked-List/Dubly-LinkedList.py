@@ -48,6 +48,14 @@ class DublyLinkedList:
         self.head.prev = None
         self.length -= 1
         return temp
+    
+    def get(self, index):
+        if index < 0 or index > self.length:
+            raise IndexError('Index out of range')
+        temp = self.head
+        for _ in range(self.length):
+            temp = self.head.next
+        return temp
 
     def print_list(self):
         temp = self.head
@@ -59,5 +67,4 @@ class DublyLinkedList:
 dll = DublyLinkedList(10)
 dll.append(12)
 dll.append(14)
-dll.pop_first()
-dll.print_list()
+print(dll.get(3).value)
