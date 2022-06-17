@@ -19,6 +19,17 @@ class DublyLinkedList:
         self.tail = new_node
         self.length += 1
         return True
+
+    def pop(self):
+        if self.head.next is None:
+            raise IndexError('DLL is empty')
+        temp = self.tail
+        prev = self.tail.prev
+        del self.tail
+        prev.next = None
+        self.tail = prev
+        self.length -= 1
+        return temp
     
     def print_list(self):
         temp = self.head
@@ -30,4 +41,7 @@ class DublyLinkedList:
 dll = DublyLinkedList(10)
 dll.append(12)
 dll.append(12)
+dll.pop()
+dll.pop()
+dll.pop()
 dll.print_list()
