@@ -21,6 +21,7 @@ class Stack:
     def pop(self):
         try:
             self.top = self.top.next
+            self.length -= 1
             return True
         except AttributeError:
             raise ValueError('Stack is empty')
