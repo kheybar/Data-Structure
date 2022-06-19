@@ -10,6 +10,14 @@ class Stack:
         self.top = new_node
         self.length = 1
 
+    def push(self, value):
+        new_node = Node(value)
+        temp = self.top
+        self.top = new_node
+        self.top.next = temp
+        self.length += 1
+        return True
+
     def print_stack(self):
         temp = self.top
         while temp is not None:
@@ -18,4 +26,6 @@ class Stack:
 
 
 stack = Stack(10)
+stack.push(11)
+stack.push(12)
 stack.print_stack()
