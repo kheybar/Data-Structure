@@ -18,6 +18,13 @@ class Stack:
         self.length += 1
         return True
 
+    def pop(self):
+        try:
+            self.top = self.top.next
+            return True
+        except AttributeError:
+            raise ValueError('Stack is empty')
+
     def print_stack(self):
         temp = self.top
         while temp is not None:
@@ -28,4 +35,6 @@ class Stack:
 stack = Stack(10)
 stack.push(11)
 stack.push(12)
+stack.pop()
+stack.pop()
 stack.print_stack()
